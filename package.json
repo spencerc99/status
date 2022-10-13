@@ -1,5 +1,6 @@
 {
-  "name": "nextjs",
+  "name": "status",
+  "description": "Gets the status of the owner of this server. Exposes a personal API for the owner.",
   "version": "0.1.0",
   "private": true,
   "scripts": {
