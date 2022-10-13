@@ -35,7 +35,7 @@ export default async function handler(req, res) {
 
   const data = await response.json();
 
-  res.send(200).json(
+  res.status(200).json(
     data.items.map((item: any) => ({
       ...item.values,
       date: new Date(item.values.date),
