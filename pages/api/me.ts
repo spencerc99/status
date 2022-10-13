@@ -22,9 +22,19 @@ const CodaApiToken = "56aa6b4f-ede3-45a5-b571-bdbd626b58dd";
 const docId = "_ObKm8enqO";
 const gridId = "grid-PAKiSBywCk";
 
+export function withQueryParams(url: string, params: { [key: string]: any }) {
+  return (
+    url +
+    "?" +
+    Object.entries(params)
+      .map(([key, paramValue]) => `${key}=${encodeURIComponent(paramValue)}`)
+      .join("&")
+  );
+}
+
 export default async function handler(req, res) {
   const resp = await fetch(
-    `https://coda.io/apis/v1/docs/${docId}/tables/${gridId}/rows?useColumnNames=true&valueFormat=rich`,
+    `https://coda.io/apis/v1/docs/${docId}/tables/${gridId}/rows?useColumnNames=true&valueFormat=simpleWithArrays`,
     {
       headers: {
         Authorization: `Bearer ${CodaApiToken}`,
