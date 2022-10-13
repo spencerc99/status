@@ -24,7 +24,7 @@ const gridId = "grid-PAKiSBywCk";
 
 export default async function handler(req, res) {
   const resp = await fetch(
-    `https://coda.io/apis/v1/docs/${docId}/tables/${gridId}/rows?useColumnNames=true`,
+    `https://coda.io/apis/v1/docs/${docId}/tables/${gridId}/rows?useColumnNames=true&valueFormat=rich`,
     {
       headers: {
         Authorization: `Bearer ${CodaApiToken}`,
