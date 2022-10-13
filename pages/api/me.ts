@@ -31,9 +31,7 @@ export default async function handler(req, res) {
       },
     }
   );
-  const response = await resp.json();
-
-  const data = await response.json();
+  const data = await resp.json();
 
   res.status(200).json(
     data.items.map((item: any) => ({
