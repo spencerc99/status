@@ -34,7 +34,7 @@ export function withQueryParams(url: string, params: { [key: string]: any }) {
 
 export default async function handler(req, res) {
   const resp = await fetch(
-    `https://coda.io/apis/v1/docs/${docId}/tables/${gridId}/rows?useColumnNames=true&valueFormat=simpleWithArrays`,
+    `https://coda.io/apis/v1/docs/${docId}/tables/${gridId}/rows?useColumnNames=true&valueFormat=simpleWithArrays&sortBy=natural`,
     {
       headers: {
         Authorization: `Bearer ${CodaApiToken}`,
