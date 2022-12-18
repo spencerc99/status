@@ -1,0 +1,182 @@
+:local {
+  .container {
+    padding: 0 2rem;
+  }
+
+  .main {
+    min-height: 95vh;
+    padding: 4rem 0;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .content {
+    max-width: 1000px;
+    display: flex;
+    flex-direction: column;
+    font-size: 24px;
+
+    @media screen and (max-width: 600px) {
+      font-size: 16px;
+    }
+  }
+
+  .stamp {
+    width: 40px;
+    height: 40px;
+    margin-left: 8px;
+  }
+
+  .activity {
+    display: flex;
+    align-items: center;
+    padding: 1.5em;
+    border: 1px solid #eaeaea;
+
+    h3 {
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .weather {
+      margin-left: auto;
+    }
+
+    @media screen and (max-width: 600px) {
+      padding: 0.5em;
+    }
+  }
+
+  .row {
+    display: grid;
+    grid-template-columns: 2fr auto;
+  }
+  .rowOpposite {
+    display: grid;
+    grid-template-columns: auto 2fr;
+  }
+  .rowEven {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .footer {
+    display: flex;
+    flex: 1;
+    padding: 2rem 0;
+    border-top: 1px solid #222;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .windowContainer {
+    position: relative;
+    height: 100%;
+    border: 1px solid #eaeaea;
+
+    &:hover {
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 1;
+      }
+    }
+  }
+
+  .window {
+    height: 100%;
+    max-width: 200px;
+    pointer-events: none;
+    position: relative;
+    border: none;
+  }
+}
+
+/*
+ * CARD STYLING
+ */
+
+// inspired by https://github.com/simeydotme/pokemon-cards-css
+
+.card__shine {
+  display: grid;
+  overflow: hidden;
+  z-index: 3;
+  transform: translateZ(1px);
+  background: transparent;
+  mix-blend-mode: color-dodge;
+  filter: brightness(0.85) contrast(2.75) saturate(0.65);
+  background-size: cover;
+  background-position: center;
+  opacity: var(--o);
+}
+.card__shine:before {
+  grid-area: 1/1;
+  transform: translateZ(1px);
+}
+.card__shine:after {
+  grid-area: 1/1;
+  transform: translateZ(1.2px);
+  border-radius: var(--radius);
+}
+.card__glare {
+  transform: translateZ(1.4px);
+  background: radial-gradient(
+    farthest-corner circle at var(--mx) var(--my),
+    rgba(255, 255, 255, 0.8) 10%,
+    rgba(255, 255, 255, 0.65) 20%,
+    rgba(0, 0, 0, 0.5) 90%
+  );
+  mix-blend-mode: overlay;
+  opacity: var(--o);
+}
+.card__glare.holo:not(.v):not(.vmax):not(.vstar) {
+  opacity: calc(var(--o) * 0.8);
+  filter: brightness(0.8) contrast(1.5);
+}
+.card__glare.v,
+.card__glare.vfull,
+.card__glare.vmax,
+.card__glare.vstar {
+  filter: brightness(0.9) contrast(1.75);
+  background: radial-gradient(
+    farthest-corner circle at var(--mx) var(--my),
+    rgb(255, 255, 255) 0%,
+    rgba(133, 137, 141, 0.33) 45%,
+    rgba(100, 100, 100, 0.65) 120%
+  );
+  opacity: calc(var(--o) * 0.66);
+}
+.card__glare.vmax {
+  background: radial-gradient(
+    farthest-corner circle at var(--mx) var(--my),
+    rgba(255, 255, 255, 0.75) 0%,
+    rgba(99, 99, 99, 0.35) 45%,
+    rgba(0, 0, 0, 1) 120%
+  );
+}
+:global(.card[data-rarity="rare holo"][data-gallery="true"]) .card__glare {
+  background: radial-gradient(
+    farthest-corner circle at var(--mx) var(--my),
+    rgba(255, 255, 255, 0.8) 10%,
+    rgba(255, 255, 255, 0.6) 35%,
+    rgba(0, 0, 0, 1) 85%
+  );
+}
+
+:global(.card[data-rarity="radiant rare"]) .card__glare {
+  background-image: radial-gradient(
+    farthest-corner circle at var(--mx) var(--my),
+    rgba(255, 255, 255, 0.9) 10%,
+    rgba(255, 255, 255, 0.6) 30%,
+    rgba(0, 0, 0, 0.8) 80%
+  );
+}

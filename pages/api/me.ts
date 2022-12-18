@@ -10,7 +10,17 @@
  * moving -> last strava activity
  */
 
-interface Activity {
+export enum ActivityType {
+  Writing = "Writing",
+  Listening = "Listening",
+  Reciting = "Reciting",
+  Building = "Building",
+  Reading = "Reading",
+  Moving = "Moving",
+}
+
+export interface Activity {
+  category: ActivityType;
   name: string;
   link: string;
   displayHTML: string;
@@ -46,6 +56,7 @@ export default async function handler(req, res) {
   res.status(200).json(
     data.items.map((item: any) => ({
       ...item.values,
+      category: item.values.category as ActivityType,
       date: new Date(item.values.date),
     })) as Activity[]
   );
