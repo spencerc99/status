@@ -18,7 +18,11 @@ export default function Home() {
         <Card />
       </main>
 
-      <footer className={styles.footer}>net art from spencer chang</footer>
+      <footer className={styles.footer}>
+        <span>
+          net art from <a href="https://spencerchang.me">spencer chang</a>
+        </span>
+      </footer>
     </div>
   );
 }
@@ -26,7 +30,7 @@ export default function Home() {
 function Card() {
   return (
     <div className={styles.content}>
-      <p>coming soon...</p>
+      coming soon...
       {/* <Status /> */}
     </div>
   );
@@ -77,6 +81,22 @@ function Status() {
             </h3>{" "}
             <span className={styles.weather}>🗺️ {location}</span>
           </div>
+          <iframe
+            style={{ borderRadius: "12px" }}
+            src="https://open.spotify.com/embed/track/3OHfY25tqY28d16oZczHc8"
+            width="100%"
+            height="352"
+            frameBorder="0"
+            allowFullScreen=""
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            loading="lazy"
+          ></iframe>
+          <div
+            className="strava-embed-placeholder"
+            data-embed-type="activity"
+            data-embed-id="8259872462"
+          ></div>
+          <script src="https://strava-embeds.com/embed.js" defer></script>
           <div className={styles.rowEven}>
             <div
               className={styles.activity}
