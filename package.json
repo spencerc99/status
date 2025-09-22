@@ -4,24 +4,16 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint",
-    "type-check": "tsc"
+    "dev": "wrangler dev",
+    "build": "wrangler deploy --dry-run",
+    "deploy": "wrangler deploy",
+    "type-check": "tsc --noEmit"
   },
   "dependencies": {
-    "next": "12.3.1",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "sass": "^1.56.1"
+    "@cloudflare/workers-types": "^4.20240909.0"
   },
   "devDependencies": {
-    "@types/node": "^12.12.21",
-    "@types/react": "^17.0.2",
-    "@types/react-dom": "^17.0.1",
-    "eslint": "8.23.1",
-    "eslint-config-next": "12.3.1",
-    "typescript": "^4.8.3"
+    "typescript": "^5.0.0",
+    "wrangler": "^4.0.0"
   }
 }
